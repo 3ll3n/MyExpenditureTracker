@@ -1,20 +1,20 @@
 DROP table merchants CASCADE;
-DROP table tag CASCADE;
+DROP table tags CASCADE;
 DROP table transactions;
 
 CREATE TABLE merchants(
-id INT4 primary key,
-name VARCHAR(255)
+id SERIAL4 primary key,
+name VARCHAR(255) not null
 );
 
-CREATE TABLE tag(
-id INT4 primary key,
-category VARCHAR(255)
+CREATE TABLE tags(
+id SERIAL4 primary key,
+category VARCHAR(255) not null
 );
 
 CREATE TABLE transactions(
-id INT4 primary key,
-merchant_id SERIAL4 REFERENCES merchants(id) ON DELETE CASCADE,
-tag_id SERIAL4 REFERENCES tag(id) ON DELETE CASCADE,
-value DECIMAL(5,2)
+id SERIAL4 primary key,
+merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE not null,
+tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE not null,
+value DECIMAL(5,2) not null
 );
