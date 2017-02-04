@@ -15,6 +15,12 @@ class Transaction
   def save()
     sql = "INSERT INTO transactions (merchant_id, tag_id, value) VALUES (#{@merchant_id}, #{@tag_id}, #{@value}) RETURNING *;"
     result = SqlRunner.run(sql)
+    @id = result.first()['id'].to_i 
+  end
+
+  def self.all()
+    sql = "SELECT * FROM transactions"
+    result = SqlRunner.run(sql)
     transactions = result.map{ |transaction_data| Transaction.new(transaction_data) }
     return transactions
   end
