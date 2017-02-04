@@ -8,3 +8,7 @@ get '/transactions' do
   @transactions = Transaction.all()
   erb(:index)
 end
+
+get '/transactions/new' do
+  erb(new)
+end
