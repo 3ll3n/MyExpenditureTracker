@@ -31,4 +31,10 @@ class Transaction
     return result.first['total_spent'].to_f
   end
 
+  def self.total_spent_on(tag)
+    sql = "SELECT SUM(value) total_spent FROM transactions WHERE tag_id = #{tag.id};"
+    result = SqlRunner.run(sql)
+    return result.first['total_spent'].to_f
+  end
+
 end

@@ -25,8 +25,9 @@ class Tag
 
   def self.find(id)
     sql = "SELECT * FROM tags WHERE id = #{id};"
-    tag = SqlRunner.run(sql)
-    result = Tag.new(tag.first)
+    result = SqlRunner.run(sql)
+    tag = Tag.new(result.first)
+    return tag
   end
 
 end
