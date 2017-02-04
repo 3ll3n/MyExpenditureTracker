@@ -24,4 +24,11 @@ class Transaction
     transactions = result.map{ |transaction_data| Transaction.new(transaction_data) }
     return transactions
   end
+
+  def self.total_spent()
+    sql = "SELECT SUM(value) total_spent FROM transactions"
+    result = SqlRunner.run(sql)
+    return result.first['total_spent'].to_f
+  end
+
 end

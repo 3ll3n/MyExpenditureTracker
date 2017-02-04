@@ -9,7 +9,7 @@ name VARCHAR(255) not null
 
 CREATE TABLE tags(
 id SERIAL4 primary key,
-category VARCHAR(255) not null
+name VARCHAR(255) not null
 );
 
 CREATE TABLE transactions(

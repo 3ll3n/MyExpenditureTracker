@@ -13,10 +13,10 @@ merchant2.save
 merchant3.save
 merchant4.save
 
-tag1 = Tag.new({"category" => "shopping"})
-tag2 = Tag.new({"category" => "electricity"})
-tag3 = Tag.new({"category" => "council tax"})
-tag4 = Tag.new({"category" => "mortgage"})
+tag1 = Tag.new({"name" => "shopping"})
+tag2 = Tag.new({"name" => "electricity"})
+tag3 = Tag.new({"name" => "council tax"})
+tag4 = Tag.new({"name" => "mortgage"})
 
 tag1.save
 tag2.save
