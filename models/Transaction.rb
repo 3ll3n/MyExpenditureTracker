@@ -37,4 +37,11 @@ class Transaction
     return result.first['total_spent'].to_f
   end
 
+  def self.find_by_tag_id(id)
+    sql = "SELECT * FROM transactions WHERE tag_id = #{id};"
+    result = SqlRunner.run(sql)
+    transactions = result.map{ |transaction_data| Transaction.new(transaction_data)}
+    return transactions
+  end
+
 end

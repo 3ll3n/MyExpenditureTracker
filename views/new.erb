@@ -1,31 +1,28 @@
 <h1>Add a Transaction</h1>
 
-<form action="/transactions" method="post">
+<form action="/transactions/new" method="post">
   <label>
     Select a Merchant:
-    <select name="merchant.name">
-      <option value="Tesco">Tesco</option>
-      <option value="Scottish Power">Scottish Power</option>
-      <option value="Glasgow City Council">Glasgow City Council</option>
-      <option value="Bank of Scotland">Bank of Scotland</option>
+    <select name="merchant_id">
+    <% for merchant in @merchants do %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
     </select>
   </label>
 
   <label>
     Select a Tag:
-    <select name="tag.name">
-      <option value="shopping">Shopping</option>
-      <option value="electricity">Electricity</option>
-      <option value="council tax">Council Tax</option>
-      <option value="mortgage">Mortgage</option>
+    <select name="tag_id">
+    <% for tag in @tags do %>
+    <option value="<%= tag.id %>"><%= tag.name %></option>
+    <% end %>
     </select>
-    
   </label>
 
   <label>
     Value
-    <input type="number" min="0" name="value">
+    <input type="number" min="0" name="value"/>
   </label>
 
-  <input type="submit" value="Add Transaction"
+  <input type="submit" value="Add Transaction"/>
 </form>
