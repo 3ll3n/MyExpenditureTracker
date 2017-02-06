@@ -62,8 +62,7 @@ nav a:visited {
   font-size: 48pt;
 }
 
-/*transactions_list.erb*/
-.transactions_container {
+.content_container {
   background-color: rgba(255,255,255,0.8);
   min-width: 960px;
   padding: 20px;
@@ -71,11 +70,16 @@ nav a:visited {
   border-left: 2px solid rgba(251,199,188,0.36);
 }
 
+.content_container a {
+  color: rgba(206,104,93,1);
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
 }
 
+/*transactions_list.erb*/
 .transaction {
   border: 2px solid rgba(91,91,91,1);
   margin: 0 0 5px 0;
@@ -85,7 +89,6 @@ nav a:visited {
 .total_expenditure h2 {
   color: rgba(91,91,91,1);
 }
-
 
 /*new.erb*/
 
