@@ -1,29 +1,32 @@
-<h2>View a Transaction by Category</h2>
+  <div class="transactions_container">
+    <h2>View a Transaction by Category</h2>
 
-<form action='/transactions/filter' method="post">
-  <label>
-    Select a category:
-    <select name="tag_id">
-    <% for tag in @tags do %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
-      <% end %>
-    </select>
-  </label>
+    <form action='/transactions/filter' method="post">
+      <label>
+        Select a category:
+        <select name="tag_id">
+          <% for tag in @tags do %>
+          <option value="<%= tag.id %>"><%= tag.name %></option>
+          <% end %>
+        </select>
+      </label>
 
-  <input type="submit" value="View"/>
-</form>
+      <input type="submit" value="View"/>
+    </form>
 
-<h2>Total Expenditure: <small>&pound;<%= sprintf("%#.2f", @total_expenditure) %></small></h2>
+    <div class="total_expenditure">
+    <h2>Total Expenditure: <small>&pound;<%= sprintf("%#.2f", @total_expenditure) %></small></h2>
+    </div>
 
-<h2>Transactions</h2>
+    <h2>Transactions</h2>
 
-<% for transaction in @transactions %>
+    <% for transaction in @transactions %>
 
-<p>Merchant Name: <%= Merchant.find(transaction.merchant_id).name %></p>
-<p>Category: <%= Tag.find(transaction.tag_id).name %></p>
-<p>Value: &pound;<%= sprintf("%#.2f", transaction.value) %></p>
+    <div class="transaction">
+      <p>Merchant Name: <%= Merchant.find(transaction.merchant_id).name %></p>
+      <p>Category: <%= Tag.find(transaction.tag_id).name %></p>
+      <p>Value: &pound;<%= sprintf("%#.2f", transaction.value) %></p>
+    </div>
 
-<hr />
-
-<% end %>
-
+    <% end %>
+  </div>

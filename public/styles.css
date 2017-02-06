@@ -1,8 +1,93 @@
-.wrapper {
-  background-color: whitesmoke;
+/*layout.erb*/
+body {
+  background: url('./background.jpg') no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(91,91,91,1);
 }
 
-.title {
-  background-color: blue;
-  color: white;
+h2 {
+  color: rgba(206,104,93,1);
 }
+
+input[type="submit"] {
+  background-color: rgba(251,199,188,0.36);
+}
+
+nav {
+  background-color: rgba(251,199,188,0.36);
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+nav li {
+  flex-grow: 1;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+
+nav a:hover{
+  opacity: 0.5;
+}
+
+nav a:link {
+  color: rgba(91,91,91,1);
+}
+
+nav a:visited {
+  color: rgba(91,91,91,1);
+}
+
+/*index.erb*/
+.title {
+  background-color: white;
+  border: 4px dotted rgba(251,199,188,0.36);
+  text-align: center;
+  margin: 25px auto;
+  min-width: 960px;
+}
+
+.title h1 {
+  font-size: 48pt;
+}
+
+/*transactions_list.erb*/
+.transactions_container {
+  background-color: rgba(255,255,255,0.8);
+  min-width: 960px;
+  padding: 20px;
+  border-right: 2px solid rgba(251,199,188,0.36);
+  border-left: 2px solid rgba(251,199,188,0.36);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.transaction {
+  border: 2px solid rgba(91,91,91,1);
+  margin: 0 0 5px 0;
+  padding: 10px;
+}
+
+.total_expenditure h2 {
+  color: rgba(91,91,91,1);
+}
+
+
+/*new.erb*/
+
+/*created.erb*/
+
