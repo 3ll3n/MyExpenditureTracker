@@ -13,13 +13,14 @@ end
 get '/transactions' do
   @total_expenditure = Transaction.total_spent
   @transactions = Transaction.all()
+  @tags = Tag.all()
   erb(:transactions_list)
 end
 
-get '/transactions/tag/:tag_id' do
-  tag = Tag.find(params[:tag_id].to_i)
-  @total_expenditure = Transaction.total_spent_on(tag)
-  @transactions = Transaction.find_by_tag_id(tag.id)
+post '/transactions/filter' do
+  @total_expenditure = Transaction.total_spent_on(params[:tag_id])
+  @tags = Tag.all()
+  @transactions = Transaction.find_by_tag_id(params[:tag_id])
   erb(:transactions_list)
 end
 
@@ -39,4 +40,6 @@ end
 get '/transactions/created' do
   erb(:created)
 end
+
+
 

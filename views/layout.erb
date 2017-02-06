@@ -2,25 +2,36 @@
 <html>
 <head>
   <title>My Expenditure Tracker</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<body>
-
-  <nav>
-    <ul>
-      <li>
-      <a href="/">Home</a>
-      </li>
-      <li>
-      <a href="/transactions">View All Transactions</a>
-      </li>
-      <li>
-      <a href="/transactions/new">New Transaction</a>
-      </li>
-    </ul>
-  </nav>
+<div class="wrapper">
+  <body>
+    <div class="nav_container"
+    <nav>
+      <ul>
+        <div class="box1">
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </div>
+        <div class="box2">
+          <li>
+            <a href="/transactions">View All Transactions</a>
+          </li>
+        </div>
+        <div class="box3">
+          <li>
+            <a href="/transactions/new">New Transaction</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </div>
+ 
 
   <%= yield %>
 
 </body>
+</div>
 </html>

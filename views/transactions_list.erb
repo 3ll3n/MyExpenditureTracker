@@ -1,3 +1,18 @@
+<h2>View a Transaction by Category</h2>
+
+<form action='/transactions/filter' method="post">
+  <label>
+    Select a category:
+    <select name="tag_id">
+    <% for tag in @tags do %>
+      <option value="<%= tag.id %>"><%= tag.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="View"/>
+</form>
+
 <h2>Total Expenditure: <small>&pound;<%= sprintf("%#.2f", @total_expenditure) %></small></h2>
 
 <h2>Transactions</h2>
