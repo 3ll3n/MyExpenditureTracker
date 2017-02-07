@@ -48,7 +48,7 @@ end
 
 post '/transactions/:id/delete' do
   Transaction.delete(params[:id])
-  redirect to(:transactions_list)
+  redirect to('/transactions')
 end
 
 
