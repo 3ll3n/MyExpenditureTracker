@@ -1,0 +1,9 @@
+<p>Merchant name: <%= @transaction.merchant %></p>
+<p>Category: </p>
+<p>Value: </p>
+
+<form action="/transactions/<%=@transaction.id%>/delete" method="post">
+
+  <input type="submit" value="Delete"/>
+
+</form>

@@ -41,5 +41,15 @@ get '/transactions/created' do
   erb(:created)
 end
 
+get 'transactions/:id' do
+  @transaction = Transaction.find(params[:id])
+  erb(:show)
+end
+
+post 'transactions/:id/delete' do
+  Transaction.delete(params[:id])
+  redirect to(:transactions_list)
+end
+
 
 

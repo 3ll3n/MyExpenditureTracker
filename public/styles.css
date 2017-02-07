@@ -23,7 +23,6 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
 }
 
 nav li {
@@ -94,3 +93,21 @@ nav a:visited {
 
 /*created.erb*/
 
+/*
+@media all and (min-width: 480px) {
+  .grid-row-sm{
+    flex-direction: row;
+  }
+}
+
+@media all and (min-width: 720px) {
+  .grid-row-md{
+    flex-direction: row;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .grid-row-lg{
+    flex-direction: row;
+  }
+  */
