@@ -1,9 +1,7 @@
-<p>Merchant name: <%= @transaction.merchant %></p>
-<p>Category: </p>
-<p>Value: </p>
+<p>Merchant name: <%= @transaction.merchant.name %></p>
+<p>Category: <%= @transaction.tag.name %></p>
+<p>Value: <%= @transaction.value %></p>
 
 <form action="/transactions/<%=@transaction.id%>/delete" method="post">
-
   <input type="submit" value="Delete"/>
-
 </form>

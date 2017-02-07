@@ -39,20 +39,23 @@ class Transaction
 
   def merchant()
     # get the merchant info back based on the merchant_id
-    sql = "SELECT * FROM merchants WHERE id = #{merchant_id}"
+    sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
     result = SqlRunner.run(sql)
-    return result.map{ |merchant| Merchant.new(merchant)}
+    merchant = Merchant.new(result.first)
   end
 
-  # def tag()
-  # end
+  def tag()
+    sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
+    result = SqlRunner.run(sql)
+    tag = Tag.new(result.first)
+  end
 
-  # def self.find(id)
-  #   sql = "SELECT * FROM transactions WHERE id =#{id}"
-  #   result = SqlRunner.run(sql)
-  #   transaction = Transaction.new(transaction.first)
-  #   return transaction
-  # end
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id =#{id}"
+    result = SqlRunner.run(sql)
+    transaction = Transaction.new(result.first)
+    return transaction
+  end
 
   def self.find_by_tag_id(id)
     sql = "SELECT * FROM transactions WHERE tag_id = #{id};"
