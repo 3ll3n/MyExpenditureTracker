@@ -1,7 +1,9 @@
-<p>Merchant name: <%= @transaction.merchant.name %></p>
-<p>Category: <%= @transaction.tag.name %></p>
-<p>Value: <%= @transaction.value %></p>
+<div class="content_container">
+  <p>Merchant name: <%= @transaction.merchant.name %></p>
+  <p>Category: <%= @transaction.tag.name %></p>
+  <p>Value: &pound;<%= sprintf("%#.2f", @transaction.value) %></p>
 
-<form action="/transactions/<%=@transaction.id%>/delete" method="post">
-  <input type="submit" value="Delete"/>
-</form>
+  <form action="/transactions/<%=@transaction.id%>/delete" method="post">
+    <input type="submit" value="Delete"/>
+  </form>
+</div>
