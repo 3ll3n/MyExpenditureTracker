@@ -18,6 +18,26 @@ class Transaction
     @id = result.first()['id'].to_i 
   end
 
+  def update()
+    sql = "UPDATE transactions SET (merchant_id, tag_id, value) = (#{@merchant_id}, #{@tag_id}, #{@value})
+          WHERE id = #{@id};"
+    result = SqlRunner.run(sql)
+    return result
+  end
+
+  def merchant()
+    # get the merchant info back based on the merchant_id
+    sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
+    result = SqlRunner.run(sql)
+    merchant = Merchant.new(result.first)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
+    result = SqlRunner.run(sql)
+    tag = Tag.new(result.first)
+  end
+
   def self.all()
     sql = "SELECT * FROM transactions"
     result = SqlRunner.run(sql)
@@ -35,19 +55,6 @@ class Transaction
     sql = "SELECT SUM(value) total_spent FROM transactions WHERE tag_id = #{tag};"
     result = SqlRunner.run(sql)
     return result.first['total_spent'].to_f
-  end
-
-  def merchant()
-    # get the merchant info back based on the merchant_id
-    sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
-    result = SqlRunner.run(sql)
-    merchant = Merchant.new(result.first)
-  end
-
-  def tag()
-    sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
-    result = SqlRunner.run(sql)
-    tag = Tag.new(result.first)
   end
 
   def self.find(id)

@@ -2,6 +2,7 @@
 body {
   background: url('./background.jpg') no-repeat;
   background-size: cover;
+  background-attachment:fixed;
   font-family: 'Open Sans', sans-serif;
   color: rgba(91,91,91,1);
 }
