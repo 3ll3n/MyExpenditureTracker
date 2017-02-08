@@ -18,11 +18,14 @@ class Transaction
     @id = result.first()['id'].to_i 
   end
 
-  def update()
-    sql = "UPDATE transactions SET (merchant_id, tag_id, value) = (#{@merchant_id}, #{@tag_id}, #{@value})
-          WHERE id = #{@id};"
+  def self.update(transaction_data)
+    sql = 
+    "UPDATE transactions SET 
+    merchant_id = #{transaction_data['merchant_id']}, 
+    tag_id = #{transaction_data['tag_id']}, 
+    value = #{transaction_data['value']}
+          WHERE id = #{transaction_data['id']};"
     result = SqlRunner.run(sql)
-    return result
   end
 
   def merchant()
